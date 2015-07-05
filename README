@@ -1,0 +1,12 @@
+目录结构：
+dependency ： 相关的依赖jar包。
+
+script ： 包含lda的运行脚本，其中lda目录下包含了运行方法。
+
+source ： 包含lda的源码，需要配置scalar开发环境。（需要通过build_path配置依赖包的路径）
+
+
+修改源码后，只需将工程重新Export为jar文件，替换script中对应的jar文件即可。
+注：
+1.生成的jar文件名应该与运行脚本中载入的jar文件名对应。
+2.Export出jar文件时，只需选择.classpath和.project文件。

@@ -1,0 +1,16 @@
+run.sh : 运行脚本，包含spark的一些配置信息，以及主程序运行相关参数的设置。
+
+Jieba.jar : 打包后的主程序文件。
+
+scopt_2.10-3.3.0.jar : 运行lda.jar主程序是需要引用的包，在run.sh 中指定依赖jar包的路径。
+
+stopword.dict : 停用词，指定本机的某个路径即可（注：无需传至hdfs上）。
+
+
+运行方法：
+
+./run.sh
+
+主程序相关参数：
+"<input>" : "input paths (directories) to plain text corpora.."
+"<output>" : "output paths (directories) to store the segmentation result."

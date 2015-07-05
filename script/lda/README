@@ -1,0 +1,28 @@
+run.sh : 运行脚本，包含spark的一些配置信息，以及主程序运行相关参数的设置。
+
+lda.jar : 打包后的主程序文件。
+
+lda.py : 基于lda模型，验证聚类效果。包含载入模型，预测文本topic和wordTag。也可直接通过文本平台的predictDoc接口进行调用。
+
+scopt_2.10-3.3.0.jar : 运行lda.jar主程序是需要引用的包，在run.sh 中指定依赖jar包的路径。
+
+stopword.dict : 停用词，需要上传至hdfs，并在run.sh中指定stopword的hdfs路径才会被主程序载入。
+
+
+运行方法：
+
+./run.sh
+
+主程序相关参数：
+"k" : "number of topics."
+"maxIterations" : "number of iterations of learning. "
+"docConcentration" ； "commonly named alpha, amount of topic smoothing to use (> 1.0) (-1=auto)."
+"topicConcentration" : "commonly named beta or eta, amount of term (word) smoothing to use (> 1.0) (-1=auto)."
+"vocabSize" : "number of distinct word types to use, chosen by frequency. (-1=all)"
+"stopwordFile" :"filepath for a list of stopwords. Note: This must fit on a single machine."
+"checkpointDir" : "Directory for checkpointing intermediate results. Checkpointing helps with recovery and eliminates temporary shuffle files on disk."
+"checkpointInterval" : "Iterations between each checkpoint.  Only used if checkpointDir is set." 
+"<input>..." : "input paths (directories) to plain text corpora. Each text file line should hold 1 document."
+
+输出：
+运行结束后，模型保存在当前目录下model.file文件中。
